@@ -79,7 +79,10 @@ const renderFunctionalBlock = (groupNumber) => {
   const moveAllHandler = (listFrom, listTo) => {
     let list = listFrom.querySelectorAll('.list__item');
     let fragment = document.createDocumentFragment();
-    Array.from(list).forEach((it) => fragment.appendChild(it));
+    Array.from(list).forEach((it) => {
+      it.classList.remove('selected');
+      fragment.appendChild(it);
+    });
     listTo.appendChild(fragment);
   };
   addAllToRightBtn.addEventListener('click', () => {
